@@ -28,6 +28,10 @@ body {
     margin: 0 20px;
 }
 
+.nav-sidebar #navbar-control {
+    display: none;
+}
+
 .list-menu ul {
     list-style-type: none;
 }
@@ -95,5 +99,9 @@ body {
 
     .nav-sidebar.navbar-active {
         z-index: 10;
+    }
+
+    .nav-sidebar #navbar-control {
+        display: inline-block;
     }
 }
