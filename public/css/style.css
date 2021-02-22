@@ -10,6 +10,15 @@ body {
     width: 240px;
     height: 100vh;
     position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: -280px;
+    transition: 1s;
+}
+
+.nav-sidebar.navbar-active {
+    left: 0px
 }
 
 .nav-sidebar .logo img {
@@ -37,12 +46,54 @@ body {
     width: 30px;
 }
 
-/* Content */
+/* Layout */
 
 .content-box {
+    transition: 1s;
+}
+
+.content-box.navbar-active {
     padding-left: 240px;
+    transition: 1s;
 }
 
 .content-box_header {
     height: 100px;
+}
+
+/* Content - Dashboard */
+
+.banner-info {
+    height: 150px;
+}
+
+.banner-info p {
+    padding-right: 180px;
+}
+
+.banner-info img {
+    height: 130px;
+    top: 10px;
+    right: 10px;
+}
+
+.avatar-class {
+    width: 75px;
+    height: 75px;
+}
+
+.avatar-class a {
+    text-decoration: none;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 625px){
+    .content-box.navbar-active {
+        padding-left: 0;
+    }
+
+    .nav-sidebar.navbar-active {
+        z-index: 10;
+    }
 }
