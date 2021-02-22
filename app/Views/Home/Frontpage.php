@@ -11,10 +11,10 @@
         <div class="col-lg-3 col-sm-6 col-12 my-1">
             <div class="card p-3 border-0">
                 <div class="row">
-                    <div class="col text-end p-0">
-                        <h1 class="fw-bold my-2">29</h1>
+                    <div class="col position-relative d-flex align-items-center">
+                        <h1 class="fw-bold position-absolute end-0">29</h1>
                     </div>
-                    <div class="col my-2 py-1 text-secondary">
+                    <div class="col text-secondary">
                         <h6>Teman</h6>
                         <h6>Sekelas</h6>
                     </div>
@@ -24,10 +24,10 @@
         <div class="col-lg-3 col-sm-6 col-12 my-1">
             <div class="card p-3 border-0">
                 <div class="row">
-                    <div class="col text-end p-0">
-                        <h1 class="fw-bold my-2">4</h1>
+                    <div class="col position-relative d-flex align-items-center">
+                        <h1 class="fw-bold position-absolute end-0">4</h1>
                     </div>
-                    <div class="col my-2 py-1 text-secondary">
+                    <div class="col text-secondary">
                         <h6>Tugas</h6>
                         <h6>Berjalan</h6>
                     </div>
@@ -37,10 +37,10 @@
         <div class="col-lg-3 col-sm-6 col-12 my-1">
             <div class="card p-3 border-0">
                 <div class="row">
-                    <div class="col text-end p-0">
-                        <h1 class="fw-bold my-2">11</h1>
+                    <div class="col position-relative d-flex align-items-center">
+                        <h1 class="fw-bold position-absolute end-0">11</h1>
                     </div>
-                    <div class="col my-2 py-1 text-secondary">
+                    <div class="col text-secondary">
                         <h6>Tugas</h6>
                         <h6>Diselesaikan</h6>
                     </div>
@@ -50,10 +50,10 @@
         <div class="col-lg-3 col-sm-6 col-12 my-1">
             <div class="card p-3 border-0">
                 <div class="row">
-                    <div class="col text-end p-0">
-                        <h1 class="fw-bold my-2">B+</h1>
+                    <div class="col position-relative d-flex align-items-center">
+                        <h1 class="fw-bold position-absolute end-0">B+</h1>
                     </div>
-                    <div class="col my-2 py-1 text-secondary">
+                    <div class="col text-secondary">
                         <h6>Nilai</h6>
                         <h6>Minggu Ini</h6>
                     </div>

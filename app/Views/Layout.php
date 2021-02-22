@@ -11,20 +11,20 @@
         </button>
         <div class="list-menu">
             <ul class="text-center p-0">
-                <a href="#">
-                    <li class="my-5 active">
+                <a href="<?= base_url('') ?>">
+                    <li class="my-5 <?php if($pagedata['name'] == ''){echo 'active';} ?>">
                         <i class="fas fa-th-large fa-2x"></i>
                         <p>Dashboard</p>
                     </li>
                 </a>
-                <a href="#">
-                    <li class="my-5">
+                <a href="<?= base_url('/Kelas') ?>">
+                    <li class="my-5 <?php if($pagedata['name'] == 'kelas'){echo 'active';} ?>">
                         <i class="fas fa-chalkboard-teacher fa-2x"></i>
                         <p>Kelas</p>
                     </li>
                 </a>
-                <a href="#">
-                    <li class="my-5">
+                <a href="<?= base_url('/Tugas') ?>">
+                    <li class="my-5 <?php if($pagedata['name'] == 'tugas'){echo 'active';} ?>">
                         <i class="fas fa-book fa-2x"></i>
                         <p>Tugas</p>
                     </li>
@@ -38,12 +38,16 @@
                 <button class="bg-light border-0 my-1" id="navbar-control">
                     <i class="fas fa-bars my-2"></i>
                 </button>
-                <form class="d-flex my-auto">
-                    <input class="form-control me-2 rounded-pill border-0" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn bg-white rounded-pill" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                <div>
+                    <i class="fas fa-bell fs-5 mx-3 align-middle"></i>
+                    <i class="fas fa-newspaper fs-5 mx-3 align-middle"></i>
+                    <button class="bg-light border-0">
+                        <img src="<?= base_url('image/icon/person.png') ?>">
+                        <i class="fas fa-chevron-down align-middle mx-3"></i>
+                    </button>
+                </div>
             </div>
-            <span class="navbar-brand fs-4 text-secondary ms-3">Dashboard</span>
+            <span class="navbar-brand fs-4 text-secondary ms-3"><?= $pagedata['title'] ?></span>
         </nav>
         <div class="mx-4">
             <?= $this->renderSection('content') ?>
