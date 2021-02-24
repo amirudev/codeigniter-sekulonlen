@@ -17,9 +17,6 @@ class Tugas extends Migration
             'kelas_id' => [
                 'type' => 'INT'
             ],
-            'guru_id' => [
-                'type' => 'INT'
-            ],
             'name' => [
                 'type' => 'TEXT'
             ],

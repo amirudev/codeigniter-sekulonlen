@@ -23,7 +23,7 @@ class SiswaKelas extends Migration
         $this->forge->addKey('id', TRUE);
 
         $this->forge->addForeignKey('siswa_id', 'siswa', 'id');
-        $this->forge->addForeignKey('kelas_id', 'siswa', 'id');
+        $this->forge->addForeignKey('kelas_id', 'kelas', 'id');
 
         $this->forge->createTable('siswakelas');
     }
