@@ -65,6 +65,23 @@ body {
     height: 100px;
 }
 
+.popover {
+    top: 50px;
+    left: -100px;
+    width: 200px;
+    display: none;
+}
+
+.popover.active {
+    display: inline-block;
+}
+
+.popover ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* Content - Dashboard */
 
 .banner-info {

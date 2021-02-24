@@ -55,7 +55,7 @@
                     </div>
                     <div class="col text-secondary">
                         <h6>Nilai</h6>
-                        <h6>Minggu Ini</h6>
+                        <h6>Siswa</h6>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
     </div>
     <div class="row">
         <div class="col-lg-9 col-12">
-            <h5 class="my-3">My Learning Progress</h5>
+            <h5 class="my-3">My Assignment</h5>
             <div class="card p-3 border-0">
                 <div class="row my-2">
                     <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-primary">
@@ -73,7 +73,7 @@
                         <h5>English Conversation</h5>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
                         <div class="progress my-3">
-                            <div class="progress-bar" role="progressbar" style="width: 75%">3/4 Tugas Dikerjakan</div>
+                            <div class="progress-bar" role="progressbar" style="width: 75%">3 Hari Tersisa</div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <h5>Mathematics</h5>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
                         <div class="progress my-3">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%">2/4 Tugas Dikerjakan</div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%">Minggu Ini</div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         <h5>Physical Exercise</h5>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
                         <div class="progress my-3">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%">1/4 Tugas Dikerjakan</div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%">Besok</div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                         <h5>Indonesian Bahasa</h5>
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
                         <div class="progress my-3">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%">1/4 Tugas Dikerjakan</div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%">Hari Ini</div>
                         </div>
                     </div>
                 </div>

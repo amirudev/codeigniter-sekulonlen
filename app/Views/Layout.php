@@ -39,11 +39,33 @@
                     <i class="fas fa-bars my-2"></i>
                 </button>
                 <div>
-                    <i class="fas fa-bell fs-5 mx-3 align-middle"></i>
-                    <i class="fas fa-newspaper fs-5 mx-3 align-middle"></i>
-                    <button class="bg-light border-0">
+                    <button class="bg-light border-0 position-relative" id="popover-expand-button">
+                        <i class="fas fa-bell fs-5 mx-3 align-middle"></i>
+                        <div class="popover position-absolute p-3">
+                            <span>Tugas belum dikumpulkan!</span>
+                            <hr>
+                            <span>Tugas belum dikumpulkan!</span>
+                        </div>
+                    </button>
+                    <button class="bg-light border-0 position-relative" id="popover-expand-button">
+                        <i class="fas fa-newspaper fs-5 mx-3 align-middle"></i>
+                        <div class="popover position-absolute p-3">
+                            <span>Sekolah ditutup kembali</span>
+                            <h6 class="text-secondary text-end">12-01-2021</h6>
+                            <hr>
+                            <span>Belajar Online diperpanjang</span>
+                            <h6 class="text-secondary text-end">12-01-2021</h6>
+                        </div>
+                    </button>
+                    <button class="bg-light border-0 position-relative" id="popover-expand-button">
                         <img src="<?= base_url('image/icon/person.png') ?>">
                         <i class="fas fa-chevron-down align-middle mx-3"></i>
+                        <div class="popover position-absolute">
+                            <ul>
+                                <li class="p-3"><a href="#">Login</a></li>
+                                <li class="p-3"><a  href="#">Register</a></li>
+                            </ul>
+                        </div>
                     </button>
                 </div>
             </div>
