@@ -1,6 +1,7 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '\function\sitesetting.php'); ?>
 <div class="banner-info card p-3 rounded-3 border-0 bg-info position-relative">
     <p class="text-white fs-4 fw-bold">3 Tips to get perfect score at school</p>
     <img class="position-absolute" src="<?= base_url('image/illustration/hiring.svg') ?>">
@@ -68,7 +69,7 @@
             <div class="card p-3 border-0">
                 <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
                     <div class="row my-2">
-                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-primary">
+                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= $tugas['kelas_bgcolor'] ?>">
                             <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
                         </div>
                         <div class="mx-3 col-9">

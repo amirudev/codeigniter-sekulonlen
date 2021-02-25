@@ -15,6 +15,7 @@ class TugasModel extends Model
     {
         $this->select('*');
         $this->join('kelas', 'kelas.id = tugas.kelas_id');
+        $this->orderBy('time_limit', 'ASC');
         $query = $this->get();
         return $query->getResultArray();
     }
