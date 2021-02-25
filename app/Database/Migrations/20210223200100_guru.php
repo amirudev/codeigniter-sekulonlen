@@ -13,7 +13,7 @@ class Guru extends Migration
                 'auto_increment' => TRUE,
                 'constraint' => 5
             ],
-            'name' => [
+            'guru_name' => [
                 'type' => 'TEXT'
             ]
         ]);

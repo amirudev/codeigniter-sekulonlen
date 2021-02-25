@@ -12,7 +12,7 @@ class Siswa extends Migration
                 'type' => 'INT',
                 'auto_increment' => TRUE
             ],
-            'name' => [
+            'siswa_name' => [
                 'type' => 'TEXT'
             ]
         ]);

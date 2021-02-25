@@ -12,7 +12,7 @@ class Kelas extends Migration
                 'type' => 'INT',
                 'auto_increment' => TRUE
             ],
-            'name' => [
+            'kelas_name' => [
                 'type' => 'TEXT'
             ],
             'guru_id' => [

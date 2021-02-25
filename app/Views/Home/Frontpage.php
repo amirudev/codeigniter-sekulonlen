@@ -61,6 +61,9 @@
             </div>
         </div>
     </div>
+    <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
+        <?= print_r($tugas) ?>
+    <?php } ?>
     <div class="row">
         <div class="col-lg-9 col-12">
             <h5 class="my-3">My Assignment</h5>
