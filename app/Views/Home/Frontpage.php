@@ -1,5 +1,6 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
 <div class="banner-info card p-3 rounded-3 border-0 bg-info position-relative">
     <p class="text-white fs-4 fw-bold">3 Tips to get perfect score at school</p>
     <img class="position-absolute" src="<?= base_url('image/illustration/hiring.svg') ?>">
@@ -61,61 +62,24 @@
             </div>
         </div>
     </div>
-    <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
-        <?= print_r($tugas) ?>
-    <?php } ?>
     <div class="row">
         <div class="col-lg-9 col-12">
             <h5 class="my-3">My Assignment</h5>
             <div class="card p-3 border-0">
-                <div class="row my-2">
-                    <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-primary">
-                        <a class="text-white m-auto fs-3 fw-bold" href="#">E</a>
-                    </div>
-                    <div class="mx-3 col-9">
-                        <h5>English Conversation</h5>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
-                        <div class="progress my-3">
-                            <div class="progress-bar" role="progressbar" style="width: 75%">3 Hari Tersisa</div>
+                <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
+                    <div class="row my-2">
+                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-primary">
+                            <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
+                        </div>
+                        <div class="mx-3 col-9">
+                            <h5><?= $tugas['kelas_name'] ?></h5>
+                            <span><?= $tugas['tugas_name'] ?></span>
+                            <div class="progress my-3">
+                                <div class="progress-bar" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-success">
-                        <a class="text-white m-auto fs-3 fw-bold" href="#">M</a>
-                    </div>
-                    <div class="mx-3 col-9">
-                        <h5>Mathematics</h5>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
-                        <div class="progress my-3">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%">Minggu Ini</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-danger">
-                        <a class="text-white m-auto fs-3 fw-bold" href="#">PE</a>
-                    </div>
-                    <div class="mx-3 col-9">
-                        <h5>Physical Exercise</h5>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
-                        <div class="progress my-3">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%">Besok</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-warning">
-                        <a class="text-white m-auto fs-3 fw-bold" href="#">I</a>
-                    </div>
-                    <div class="mx-3 col-9">
-                        <h5>Indonesian Bahasa</h5>
-                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut enim iusto cum minima totam, esse culpa animi et nihil quaerat expedita odit voluptates earum a magnam obcaecati fugiat? Error, nemo?</span>
-                        <div class="progress my-3">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 25%">Hari Ini</div>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
         <div class="col-lg-3 col-12">
