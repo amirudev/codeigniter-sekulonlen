@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 class Kelas extends BaseController
 {
-    
     public function index()
 	{
         $kelasModel = new \App\Models\KelasModel();

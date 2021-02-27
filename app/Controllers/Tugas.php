@@ -19,4 +19,15 @@ class Tugas extends BaseController
             ]
         ]);
 	}
+
+    public function tambah()
+    {
+        return view('Tugas/Tambah', 
+        [
+            'pagedata' => [
+                'name' => 'tugas',
+                'title' => 'Tambah Tugas'
+            ]
+        ]);
+    }
 }
