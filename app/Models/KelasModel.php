@@ -7,14 +7,14 @@ class KelasModel extends Model
 {
     protected $table = 'kelas';
     protected $primaryKey = 'id';
-    protected $allowedField = ['kelas_name', 'guru_id', 'kelas_icon', 'kelas_bgcolor'];
+    protected $allowedField = ['kelas_name', 'user_id', 'kelas_icon', 'kelas_bgcolor'];
     protected $returnType = 'App\Entities\Kelas';
     protected $useTimestampes = false;
 
     public function listing()
     {
         $this->select('*');
-        $this->join('guru', 'guru.id = kelas.guru_id');
+        $this->join('user', 'user.id = kelas.user_id');
         $query = $this->get();
         return $query->getResultArray();
     }

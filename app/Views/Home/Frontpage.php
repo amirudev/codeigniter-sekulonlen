@@ -69,7 +69,7 @@
             <div class="card p-3 border-0">
                 <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
                     <div class="row my-2">
-                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= $tugas['kelas_bgcolor'] ?>">
+                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= getColor($tugas['kelas_bgcolor']) ?>">
                             <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
                         </div>
                         <div class="mx-3 col-9">

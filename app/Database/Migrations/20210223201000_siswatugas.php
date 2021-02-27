@@ -12,7 +12,7 @@ class SiswaTugas extends Migration
                 'type' => 'INT',
                 'auto_increment' => TRUE
             ],
-            'siswa_id' => [
+            'user_id' => [
                 'type' => 'INT'
             ],
             'tugas_id' => [
@@ -33,7 +33,7 @@ class SiswaTugas extends Migration
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->addForeignKey('siswa_id','siswa','id');
+        $this->forge->addForeignKey('user_id','user','id');
         $this->forge->addForeignKey('tugas_id','tugas','id');
 
         $this->forge->createTable('siswatugas', TRUE);

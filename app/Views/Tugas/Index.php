@@ -20,6 +20,9 @@
                 <div class="mx-3 col-9">
                     <h5><?= $tugas['kelas_name'] ?></h5>
                     <span><strong><?= $tugas['tugas_name'] ?></strong> - <?= substr($tugas['content'], 0, 100); ?></span>
+                    <div class="progress my-3">
+                        <div class="progress-bar" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
+                    </div>
                     <hr>
                 </div>
             </div>

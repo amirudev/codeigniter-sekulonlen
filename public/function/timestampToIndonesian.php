@@ -1,6 +1,8 @@
 <?php
 function timestampToIndonesian($time){
-    if($time < 60){
+    if($time < 0){
+        return 0;
+    } else if($time < 60){
         return $time  . ' Detik';
     } else if($time < 3600) {
         return floor($time / 60) . ' Menit';

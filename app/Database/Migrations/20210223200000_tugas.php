@@ -10,9 +10,7 @@ class Tugas extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'auto_increment' => TRUE,
-                'null' => TRUE,
-                'constraint' => 10
+                'auto_increment' => TRUE
             ],
             'kelas_id' => [
                 'type' => 'INT'

@@ -15,14 +15,22 @@ class Kelas extends Migration
             'kelas_name' => [
                 'type' => 'TEXT'
             ],
-            'guru_id' => [
+            'user_id' => [
                 'type' => 'INT'
+            ],
+            'kelas_icon' => [
+                'type' => 'INT',
+                'constraint' => 1
+            ],
+            'kelas_bgcolor' => [
+                'type' => 'INT',
+                'constraint' => 1
             ]
         ]);
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->addForeignKey('guru_id','guru','id');
+        $this->forge->addForeignKey('user_id','user','id');
         
         $this->forge->createTable('kelas', TRUE);
     }
