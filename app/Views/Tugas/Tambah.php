@@ -1,32 +1,62 @@
 <?= $this->extend('layout'); ?>
 <?= $this->section('content'); ?>
+<?php
+$judultugas = [
+    'name' => 'tugas_name',
+    'id' => 'judul_tugas',
+    'value' => NULL,
+    'class' => 'form-control mb-2'
+];
+$deskripsitugas = [
+    'name' => 'content',
+    'id' => 'deskripsi_tugas',
+    'value' => NULL,
+    'class' => 'form-control mb-2',
+    'style' => 'height: 200px'
+];
+$kelastugas = [
+    'name' => 'kelas_id',
+    'id' => 'id_kelas',
+    'options' => [
+        1 => 'Sains 9B',
+        2 => 'Matematika 9B',
+        3 => 'Bahasa Indonesia 9B'
+    ],
+    'class' => 'form-select'
+]
+?>
+<?= form_open('Tugas/Tambah'); ?>
 <div class="row">
     <div class="col-12 col-md-8 my-1">
+    <?php 
+    $this->session = session();
+    $errors = $this->session->getFlashdata('errors');
+    foreach($errors as $index => $error){ ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error ?>
+        </div>
+    <?php } ?>
         <div class="form-floating">
-            <input type="text" class="form-control mb-2" id="judulTugas">
-            <label for="judulTugas">Judul Tugas</label>
+            <?= form_input($judultugas) ?>
+            <?= form_label('Judul Tugas', 'judul_tugas') ?>
         </div>
         <div class="form-floating">
-            <textarea class="form-control mb-2" id="deskripsiTugas" style="height: 200px"></textarea>
-            <label for="deskripsiTugas">Deskripsi Tugas</label>
+            <?= form_textarea($deskripsitugas) ?>
+            <?= form_label('Deskripsi Tugas', 'deskripsi_tugas') ?>
         </div>
     </div>
     <div class="col-12 col-md-4 my-1">
         <div class="form-group">
-            <label class="form-label">Pilih Kelas</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Kelas</option>
-                <option value="1">Sains 9B</option>
-                <option value="2">Matematika 9B</option>
-                <option value="3">Agama 9B</option>
-            </select>
+            <?= form_label('Pilih Kelas', 'id_kelas') ?>
+            <?= form_dropdown($kelastugas) ?>
         </div>
         <div class="form-group">
             <p class="form-label">Pilih Tenggat Waktu</p>
-            <input type="date">
-            <input type="time">
+            <input type="date" name="timelimit_date">
+            <input type="time" name="timelimit_time">
         </div>
         <input type="submit" class="btn btn-primary my-2 w-100" value="Tugaskan">
     </div>
 </div>
+<?= form_close(); ?>
 <?= $this->endsection() ?>

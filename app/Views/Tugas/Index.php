@@ -1,6 +1,6 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
-<a href="Tugas/Tambah" class="btn-link">+ Tambah Tugas</a>
+<a href="/Tugas/Tambah" class="btn-link">+ Tambah Tugas</a>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\sitesetting.php'); ?>
 <div class="row">

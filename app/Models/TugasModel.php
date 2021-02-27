@@ -7,7 +7,7 @@ class TugasModel extends Model
 {
     protected $table = 'tugas';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['kelas_id', 'name', 'content', 'time_limit'];
+    protected $allowedFields = ['kelas_id', 'tugas_name', 'content', 'time_limit'];
     protected $returnType = 'App\Entities\Tugas';
     protected $useTimestampes = false;
 

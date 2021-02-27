@@ -40,4 +40,16 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	public $tambahTugas = [
+		'tugas_name' => [
+			'rules' => 'required'
+		]
+	];
+
+	public $tambahTugas_errors = [
+		'tugas_name' => [
+			'required' => 'Nama Tugas wajib diberikan'
+		]
+	];
 }
