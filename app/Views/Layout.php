@@ -62,8 +62,8 @@
                         <i class="fas fa-chevron-down align-middle mx-3"></i>
                         <div class="popover position-absolute">
                             <ul>
-                                <li class="p-3"><a href="Auth/Login">Login</a></li>
-                                <li class="p-3"><a  href="Auth/Register">Register</a></li>
+                                <a href="/Auth/Login"><li class="p-3">Login</li></a>
+                                <a href="/Auth/Register"><li class="p-3">Register</li></a>
                             </ul>
                         </div>
                     </button>

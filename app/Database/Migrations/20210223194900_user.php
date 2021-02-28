@@ -18,6 +18,9 @@ class Siswa extends Migration
             'user_fullname' => [
                 'type' => 'TEXT'
             ],
+            'password' => [
+                'type' => 'TEXT'
+            ]
             'privilege' => [
                 'type' => 'INT'
             ]

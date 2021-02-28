@@ -47,7 +47,7 @@
                 <label for="guru" class="col-5 border p-3">
                     <i class="fas fa-chalkboard-teacher fa-4x"></i>
                     <p>Guru</p>
-                    <input class="form-check-input" type="checkbox" id="guru" value="0">
+                    <input class="form-check-input" type="checkbox" id="guru" value="1">
                 </label>
             </div>
         </div>

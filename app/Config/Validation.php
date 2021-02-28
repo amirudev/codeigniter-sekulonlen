@@ -70,4 +70,16 @@ class Validation
 			'required' => 'Nama Lengkap wajib diisi'
 		]
 	];
+
+	public $login = [
+		'username' => [
+			'rules' => 'required'
+		]
+	];
+
+	public $login_errors = [
+		'username' => [
+			'required' => 'Username wajib diisi'
+		]
+	];
 }
