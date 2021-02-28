@@ -39,7 +39,6 @@
             <div class="mb-3">
                 <?= form_label('Keterangan', 'keterangan') ?>
                 <?= form_textarea($attachment) ?>
-
             </div>
             <?= form_submit($submit) ?>
             <?= form_close(); ?>

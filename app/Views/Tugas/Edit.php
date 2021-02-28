@@ -26,9 +26,19 @@ $kelastugas = [
     ],
     'class' => 'form-select',
     'selected' => $tugas->kelas_id
-]
+];
+$submit = [
+    'name' => 'submit',
+    'value' => 'Edit Tugas',
+    'class' => 'btn btn-primary my-2 w-100'
+];
+$id = [
+    'name' => 'id',
+    'value' => $tugas->id,
+    'type' => 'hidden'
+];
 ?>
-<?= form_open('/Tugas/Update') ?>
+<?= form_open("Tugas/Update") ?>
 <div class="row">
     <div class="col-12 col-md-8">
         <?php 
@@ -41,6 +51,7 @@ $kelastugas = [
             <?= $error ?>
         </div>
         <?php } ?>
+        <?= form_input($id) ?>
         <div class="form-floating">
             <?= form_input($judultugas) ?>
             <?= form_label('Judul Tugas', 'judul_tugas') ?>
@@ -63,8 +74,9 @@ $kelastugas = [
             <input type="date" name="timelimit_date">
             <input type="time" name="timelimit_time">
         </div>
-        <input type="submit" class="btn btn-primary my-2 w-100" value="Tugaskan">
+        <?= form_submit($submit) ?>
+        <?= form_close() ?>
+        <a class="btn btn-danger my-2 w-100" value="Hapus Tugas" href="/Tugas/Delete/<?= $tugas->id ?>">Hapus Tugas</a>
     </div>
 </div>
-<?= form_close() ?>
 <?= $this->endsection() ?>

@@ -101,6 +101,34 @@ class Tugas extends BaseController
 
     public function Update()
     {
+        if($this->request->getPost())
+        {
+            $data = $this->request->getPost();
+            $id = $data['id'];
+            $this->validation->run($data, 'tambahTugas');
+            $errors = $this->validation->getErrors();
+            if(!$errors)
+            {
+                $tugasEdit = new \App\Entities\Tugas();
+                $tugasModel = new \App\Models\TugasModel();
+                $timelimit_date = $data['timelimit_date'];
+                $timelimit_time = $data['timelimit_time'];
+                $data['time_limit'] = date('Y:m:d H:i:s', strtotime("$timelimit_date $timelimit_time"));
+                $tugasEdit->fill($data);
+                $tugasEdit->id = $id;
+                $tugasModel->save($tugasEdit);
+                $segments = ['Tugas', 'View', $id];
+                return redirect()->to(site_url($segments));
+            }
+        }
         return redirect()->to(site_url('Tugas'));
+    }
+
+    public function Delete()
+    {
+        $id = $this->request->uri->getSegments(3);
+        $tugasModel = new \App\Models\TugasModel();
+        $delete = $tugasModel->delete($id);
+        return redirect()->to(site_url('Tugas/Index'));
     }
 }
