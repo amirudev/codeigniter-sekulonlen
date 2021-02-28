@@ -23,7 +23,11 @@ $kelastugas = [
         3 => 'Bahasa Indonesia 9B'
     ],
     'class' => 'form-select'
-]
+];
+$submit = [
+    'class' => 'btn btn-primary my-2 w-100',
+    'value' => 'Tugaskan'
+];
 ?>
 <?= form_open('Tugas/Tambah'); ?>
 <div class="row">
@@ -57,7 +61,7 @@ $kelastugas = [
             <input type="date" name="timelimit_date">
             <input type="time" name="timelimit_time">
         </div>
-        <input type="submit" class="btn btn-primary my-2 w-100" value="Tugaskan">
+        <?= form_submit($submit) ?>
     </div>
 </div>
 <?= form_close(); ?>

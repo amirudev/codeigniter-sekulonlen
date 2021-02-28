@@ -52,4 +52,22 @@ class Validation
 			'required' => 'Nama Tugas wajib diberikan'
 		]
 	];
+
+	public $register = [
+		'username' => [
+			'rules' => 'required'
+		],
+		'user_fullname' => [
+			'rules' => 'required'
+		]
+	];
+
+	public $register_errors = [
+		'username' => [
+			'required' => 'Username wajib diisi'
+		],
+		'user_fullname' => [
+			'required' => 'Nama Lengkap wajib diisi'
+		]
+	];
 }
