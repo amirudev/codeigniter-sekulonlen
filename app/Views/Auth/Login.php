@@ -16,7 +16,7 @@
         ];
         $submit = [
             'class' => 'btn btn-primary my-3 w-100',
-            'value' => 'Daftar'
+            'value' => 'Masuk'
         ];
         ?>
         <?php

@@ -53,12 +53,12 @@
                 <label for="siswa" class="col-5 border p-3">
                     <i class="fas fa-user-graduate fa-4x"></i>
                     <p>Student</p>
-                    <input type="checkbox" class="form-check-input" value="0" id="siswa">
+                    <input class="form-check-input" type="radio" id="siswa" name="privilege" value="0">
                 </label>
                 <label for="guru" class="col-5 border p-3">
                     <i class="fas fa-chalkboard-teacher fa-4x"></i>
                     <p>Guru</p>
-                    <input class="form-check-input" type="checkbox" id="guru" value="1">
+                    <input class="form-check-input" type="radio" id="guru" name="privilege" value="1">
                 </label>
             </div>
         </div>

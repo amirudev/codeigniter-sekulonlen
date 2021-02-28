@@ -20,10 +20,17 @@ class Auth extends BaseController
                 // Jika validasi input sukses, maka lanjutkan
                 $user = new \App\Entities\User();
                 $userModel = new \App\Models\UserModel();
-                if(!$userModel->where('username', $data['username'])){
+                if(!$userModel->where('username', $data['username'])->first()){
                     $user->fill($data);
                     $user->setPassword($data['password']);
                     $userModel->save($user);
+                    $userSession = [
+                        'username' => $user->username,
+                        'id' => $userModel->insertID(),
+                        'privilege' => $user->privilege,
+                        'isLoggedIn' => TRUE
+                    ];
+                    $this->session->set($userSession);
                     return redirect()->to(site_url('Home/Frontpage'));
                 } else {
                     // Jika username sudah ada, maka keluar
@@ -51,6 +58,13 @@ class Auth extends BaseController
             $userAcc = $userModel->where('username', $username)->first();
             if($userAcc){
                 if(password_verify($password, $userAcc->password)){
+                    $userSession = [
+                        'username' => $userAcc->username,
+                        'id' => $userAcc->id,
+                        'privilege' => $userAcc->privilege,
+                        'isLoggedIn' => TRUE
+                    ];
+                    $this->session->set($userSession);
                     return redirect()->to(site_url('Home/Frontpage'));
                 }
             } else {
@@ -63,5 +77,11 @@ class Auth extends BaseController
                 'title' => ''
             ]
         ]);
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to(site_url('Auth/Login'));
     }
 }

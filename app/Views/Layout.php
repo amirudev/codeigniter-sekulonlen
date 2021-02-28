@@ -11,7 +11,7 @@
         </button>
         <div class="list-menu">
             <ul class="text-center p-0">
-                <a href="<?= base_url('') ?>">
+                <a href="<?= base_url('/Home') ?>">
                     <li class="my-5 <?php if($pagedata['name'] == ''){echo 'active';} ?>">
                         <i class="fas fa-th-large fa-2x"></i>
                         <p>Dashboard</p>
@@ -40,7 +40,7 @@
                 </button>
                 <div>
                     <button class="bg-light border-0 position-relative" id="popover-expand-button">
-                        <i class="fas fa-bell fs-5 mx-3 align-middle"></i>
+                        <i class="fas fa-bell fs-5 mx-2 align-middle"></i>
                         <div class="popover position-absolute p-3">
                             <span>Tugas belum dikumpulkan!</span>
                             <hr>
@@ -48,7 +48,7 @@
                         </div>
                     </button>
                     <button class="bg-light border-0 position-relative" id="popover-expand-button">
-                        <i class="fas fa-newspaper fs-5 mx-3 align-middle"></i>
+                        <i class="fas fa-newspaper fs-5 mx-2 align-middle"></i>
                         <div class="popover position-absolute p-3">
                             <span>Sekolah ditutup kembali</span>
                             <h6 class="text-secondary text-end">12-01-2021</h6>
@@ -59,11 +59,21 @@
                     </button>
                     <button class="bg-light border-0 position-relative" id="popover-expand-button">
                         <img src="<?= base_url('image/icon/person.png') ?>">
-                        <i class="fas fa-chevron-down align-middle mx-3"></i>
+                        <?php
+                        $this->session = session();
+                        $data = $this->session->get();
+                        if(isset($data['username'])){ ?>
+                            <span>Halo, <?= $data['username'] ?></span>
+                        <?php } ?>
+                        <i class="fas fa-chevron-down align-middle mx-1"></i>
                         <div class="popover position-absolute">
                             <ul>
-                                <a href="/Auth/Login"><li class="p-3">Login</li></a>
-                                <a href="/Auth/Register"><li class="p-3">Register</li></a>
+                                <?php if(!isset($data['username'])){ ?>
+                                    <a href="/Auth/Login"><li class="p-3">Login</li></a>
+                                    <a href="/Auth/Register"><li class="p-3">Register</li></a>
+                                <?php } else { ?>
+                                    <a href="/Auth/Logout"><li class="p-3">Logout</li></a>
+                                <?php } ?>
                             </ul>
                         </div>
                     </button>
