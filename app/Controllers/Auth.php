@@ -17,12 +17,20 @@ class Auth extends BaseController
             $this->validation->run($data, 'register');
             $errors = $this->validation->getErrors();
             if(!$errors){
-                $userModel = new \App\Models\UserModel();
+                // Jika validasi input sukses, maka lanjutkan
                 $user = new \App\Entities\User();
-                $user->fill($data);
-                $user->setPassword($data['password']);
-                $userModel->save($user);
-                return redirect()->to(site_url('Home/Frontpage'));
+                $userModel = new \App\Models\UserModel();
+                if(!$userModel->where('username', $data['username'])){
+                    $user->fill($data);
+                    $user->setPassword($data['password']);
+                    $userModel->save($user);
+                    return redirect()->to(site_url('Home/Frontpage'));
+                } else {
+                    // Jika username sudah ada, maka keluar
+                    $this->session->setFlashdata('errors', ['Username sudah digunakan']);
+                }
+            } else {
+                $this->session->setFlashdata('errors', $errors);
             }
         }
         return view('Auth/Register', [
@@ -37,18 +45,16 @@ class Auth extends BaseController
     {
         if($this->request->getPost()){
             $data = $this->request->getPost();
-            $this->validation->run($data, 'login');
-            $errors = $this->validation->getErrors();
-            if(!$errors){
-                $userModel = new \App\Models\UserModel();
-                $username = $data['username'];
-                $password = $data['password'];
-                $userAcc = $userModel->where('username', $username)->first();
-                if($userAcc){
-                    if(password_verify($password, $userAcc->password)){
-                        return redirect()->to(site_url('Home/Frontpage'));
-                    }
+            $userModel = new \App\Models\UserModel();
+            $username = $data['username'];
+            $password = $data['password'];
+            $userAcc = $userModel->where('username', $username)->first();
+            if($userAcc){
+                if(password_verify($password, $userAcc->password)){
+                    return redirect()->to(site_url('Home/Frontpage'));
                 }
+            } else {
+                $this->session->setFlashdata('errors', ['Username atau Password salah']);
             }
         }
         return view('Auth/Login', [

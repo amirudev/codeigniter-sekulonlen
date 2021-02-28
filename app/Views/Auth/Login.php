@@ -19,6 +19,17 @@
             'value' => 'Daftar'
         ];
         ?>
+        <?php
+        $this->session = session();
+        $errors = $this->session->getFlashdata('errors');
+        if($errors){
+            foreach ($errors as $index => $error) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+            <?php }
+        }
+        ?>
         <?= form_open('Auth/Login') ?>
         <div class="form-floating">
             <?= form_input($username) ?>
