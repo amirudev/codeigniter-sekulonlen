@@ -1,18 +1,20 @@
-<?= $this->extend('layout'); ?>
-<?= $this->section('content'); ?>
+<?= $this->extend('layout') ?>
+<?= $this->section('content') ?>
 <?php
 $judultugas = [
     'name' => 'tugas_name',
     'id' => 'judul_tugas',
     'value' => NULL,
-    'class' => 'form-control mb-2'
+    'class' => 'form-control mb-2',
+    'value' => $tugas->tugas_name
 ];
 $deskripsitugas = [
     'name' => 'content',
     'id' => 'deskripsi_tugas',
     'value' => NULL,
     'class' => 'form-control mb-2',
-    'style' => 'height: 200px'
+    'style' => 'height: 200px',
+    'value' => $tugas->content
 ];
 $kelastugas = [
     'name' => 'kelas_id',
@@ -22,12 +24,13 @@ $kelastugas = [
         2 => 'Matematika 9B',
         3 => 'Bahasa Indonesia 9B'
     ],
-    'class' => 'form-select'
+    'class' => 'form-select',
+    'selected' => $tugas->kelas_id
 ]
 ?>
-<?= form_open('Tugas/Tambah'); ?>
+<?= form_open('/Tugas/Update') ?>
 <div class="row">
-    <div class="col-12 col-md-8 my-1">
+    <div class="col-12 col-md-8">
         <?php 
         $this->session = session();
         $errors = $this->session->getFlashdata('errors');
@@ -47,8 +50,11 @@ $kelastugas = [
             <?= form_label('Deskripsi Tugas', 'deskripsi_tugas') ?>
         </div>
     </div>
-    <div class="col-12 col-md-4 my-1">
-        <div class="form-group">
+    <div class="col-12 col-md-4">
+        <div class="card bg-white p-3">
+            <h4>Tugas Siswa</h4>
+            <hr>
+            <div class="form-group">
             <?= form_label('Pilih Kelas', 'id_kelas') ?>
             <?= form_dropdown($kelastugas) ?>
         </div>
@@ -60,5 +66,5 @@ $kelastugas = [
         <input type="submit" class="btn btn-primary my-2 w-100" value="Tugaskan">
     </div>
 </div>
-<?= form_close(); ?>
+<?= form_close() ?>
 <?= $this->endsection() ?>

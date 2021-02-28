@@ -73,11 +73,13 @@
                             <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
                         </div>
                         <div class="mx-3 col-9">
-                            <h5><?= $tugas['kelas_name'] ?></h5>
-                            <span><?= $tugas['tugas_name'] ?></span>
-                            <div class="progress my-3">
-                                <div class="progress-bar" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
-                            </div>
+                            <a href="Tugas/View/<?= $tugas['id'] ?>" class="text-dark">
+                                <h5><?= $tugas['kelas_name'] ?></h5>
+                                <span><?= $tugas['tugas_name'] ?></span>
+                                <div class="progress my-3">
+                                    <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 <?php } ?>

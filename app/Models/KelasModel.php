@@ -9,7 +9,7 @@ class KelasModel extends Model
     protected $primaryKey = 'id';
     protected $allowedField = ['kelas_name', 'user_id', 'kelas_icon', 'kelas_bgcolor'];
     protected $returnType = 'App\Entities\Kelas';
-    protected $useTimestampes = false;
+    protected $useTimestamps = false;
 
     public function listing()
     {

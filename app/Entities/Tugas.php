@@ -5,5 +5,12 @@ use CodeIgniter\Entity;
 
 class Tugas extends Entity
 {
-    // ..
+    public function setAttachment($attachment)
+    {
+        $filename = $attachment->getRandomName();
+        $writepath = './uploads';
+        $attachment->move($writepath, $filename);
+        $this->attributes['attachment'] = $filename;
+        return $this;
+    }
 }

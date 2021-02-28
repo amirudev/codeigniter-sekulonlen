@@ -15,8 +15,7 @@ class Tugas extends BaseController
 	{
         $tugasModel = new \App\Models\TugasModel();
 
-		return view('Tugas/Index', 
-        [
+		return view('Tugas/Index', [
             'pagedata' => [
                 'name' => 'tugas',
                 'title' => 'Daftar Tugas'
@@ -26,6 +25,33 @@ class Tugas extends BaseController
             ]
         ]);
 	}
+
+    public function View()
+    {
+        $id = $this->request->uri->getSegment(3);
+        $tugasModel = new \App\Models\TugasModel();
+        $tugas = $tugasModel->find($id);
+        $tugasid = $tugas->id;
+
+        if($this->request->uri->getSegment(4) == 'Admin')
+        {
+            return view('Tugas/Edit', [
+                'pagedata' => [
+                    'name' => 'tugas',
+                    'title' => "Tugas #$tugasid Admin"
+                ],
+                'tugas' => $tugas
+            ]);
+        }
+
+        return view('Tugas/View', [
+            'pagedata' => [
+                'name' => 'tugas',
+                'title' => "Tugas #$tugasid"
+            ],
+            'tugas' => $tugas
+        ]);
+    }
 
     public function Tambah()
     {
@@ -47,12 +73,34 @@ class Tugas extends BaseController
             }
             $this->session->setFlashdata('errors', $errors);
         }
-        return view('Tugas/Tambah', 
-        [
+        return view('Tugas/Tambah', [
             'pagedata' => [
                 'name' => 'tugas',
                 'title' => 'Tambah Tugas'
             ]
         ]);
+    }
+
+    public function SubmitTugas()
+    {
+        if($this->request->getPost())
+        {
+            $tugasModel = new \App\Models\TugasModel();
+            $tugas = new \App\Entities\Tugas();
+            if($this->request->getFile('attachment'))
+            {
+                $tugas->attachment = $this->request->getFile('attachment');
+            }
+            $tugasModel->save($tugas);
+            $id = $tugasModel->insertID();
+            $segments = ['Barang', 'View', $id];
+            return redirect()->to(site_url($segments));
+        }
+        echo 'Something went wrong';
+    }
+
+    public function Update()
+    {
+        return redirect()->to(site_url('Tugas'));
     }
 }
