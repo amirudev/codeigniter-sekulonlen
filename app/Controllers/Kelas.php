@@ -4,9 +4,15 @@ namespace App\Controllers;
 
 class Kelas extends BaseController
 {
+    public function __construct()
+    {
+        $this->session = session();
+    }
+
     public function index()
 	{
         $kelasModel = new \App\Models\KelasModel();
+        $idsiswa = $this->session->get('id');
 
 		return view('Kelas/Index', 
         [
@@ -15,7 +21,7 @@ class Kelas extends BaseController
                 'title' => 'Daftar Kelas'
             ],
             'kelass' => [
-                'data' => $kelasModel->listing()
+                'data' => $kelasModel->listing($idsiswa)
             ]
         ]);
 	}
