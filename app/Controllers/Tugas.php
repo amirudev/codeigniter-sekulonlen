@@ -22,7 +22,9 @@ class Tugas extends BaseController
                 'title' => 'Daftar Tugas'
             ],
             'tugass' => [
-                'data' => $tugasModel->listing($idsiswa)
+                'running' => $tugasModel->listing($idsiswa),
+                'late' => $tugasModel->listLate($idsiswa),
+                'completed' => $tugasModel->listCompleted($idsiswa)
             ]
         ]);
 	}
