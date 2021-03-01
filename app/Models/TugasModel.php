@@ -51,4 +51,13 @@ class TugasModel extends Model
         $query = $this->get();
         return $query->getResultArray();
     }
+
+    public function tugasAnswer($id, $userid)
+    {
+        $this->select(['siswatugas.*']);
+        $this->join('siswatugas', 'siswatugas.tugas_id = tugas.id');
+        $this->where("siswatugas.tugas_id = $id AND siswatugas.user_id = $userid");
+        $query = $this->get();
+        return $query->getResultArray();
+    }
 }

@@ -22,6 +22,9 @@ class SiswaTugas extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255
             ],
+            'filename' => [
+                'type' => 'TEXT'
+            ],
             'content' => [
                 'type' => 'TEXT',
                 'constraint' => 100000

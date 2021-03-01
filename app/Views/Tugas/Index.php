@@ -1,9 +1,13 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '/function/xss_purify.php') ?>
-<a href="/Tugas/Tambah" class="btn-link">+ Tambah Tugas</a>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\sitesetting.php'); ?>
+<?php
+$this->session = session();
+if($this->session->get('privilege') == 1){ ?>
+    <a href="/Tugas/Tambah" class="btn-link">+ Tambah Tugas</a>
+<?php } ?>
 <div class="row">
     <?php foreach ($tugass['running'] as $index => $tugas) {
         if($index <= 1){ ?>
@@ -42,7 +46,7 @@
     <div class="mx-3 col-9">
         <a href="/Tugas/View/<?= $tugas['id'] ?>" class="text-dark">
             <h5><?= $tugas['kelas_name'] ?></h5>
-            <span><strong><?= $tugas['tugas_name'] ?></strong> - <?= substr($tugas['content'], 0, 100); ?></span>
+            <span><strong><?= xsspurify($tugas['tugas_name']) ?></strong> - <?= xsspurify(substr($tugas['content'], 0, 100)); ?></span>
             <div class="progress my-3">
                 <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (time() - strtotime($tugas['time_limit'])) / 86400 * 100 ?>%">Terlambat <?= timestampToIndonesian(time() - strtotime($tugas['time_limit'])) ?></div>
             </div>
@@ -60,7 +64,7 @@
     <div class="mx-3 col-9">
         <a href="/Tugas/View/<?= $tugas['id'] ?>" class="text-dark">
             <h5><?= $tugas['kelas_name'] ?></h5>
-            <span><strong><?= $tugas['tugas_name'] ?></strong> - <?= substr($tugas['content'], 0, 100); ?></span>
+            <span><strong><?= xsspurify($tugas['tugas_name']) ?></strong> - <?= xsspurify(substr($tugas['content'], 0, 100)); ?></span>
             <p class="text-end text-secondary">Telah dikerjakan pada <?= $tugas['created_at'] ?></p>
             <hr>
         </a>

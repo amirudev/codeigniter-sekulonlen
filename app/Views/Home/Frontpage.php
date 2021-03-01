@@ -11,24 +11,31 @@
     <div class="row">
         <div class="col-lg-9 col-12">
             <h5 class="my-3">My Assignment</h5>
-            <div class="card p-3 border-0">
-                <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
-                    <div class="row my-2">
-                        <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= getColor($tugas['kelas_bgcolor']) ?>">
-                            <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
+            <?php 
+            $this->session = session();
+            if($this->session->get('username')){ 
+            ?>
+                <div class="card p-3 border-0">
+                    <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
+                        <div class="row my-2">
+                            <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= getColor($tugas['kelas_bgcolor']) ?>">
+                                <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
+                            </div>
+                            <div class="mx-3 col-9">
+                                <a href="Tugas/View/<?= $tugas['id'] ?>" class="text-dark">
+                                    <h5><?= $tugas['kelas_name'] ?></h5>
+                                    <span><?= $tugas['tugas_name'] ?></span>
+                                    <div class="progress my-3">
+                                        <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="mx-3 col-9">
-                            <a href="Tugas/View/<?= $tugas['id'] ?>" class="text-dark">
-                                <h5><?= $tugas['kelas_name'] ?></h5>
-                                <span><?= $tugas['tugas_name'] ?></span>
-                                <div class="progress my-3">
-                                    <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </div>
+            <?php } else { ?>
+                <p class="text-secondary text-center">Silahkan Login atau Register untuk melihat data</p>
+            <?php } ?>
         </div>
         <div class="col-lg-3 col-12">
             <h5 class="my-3">Latest Information</h5>

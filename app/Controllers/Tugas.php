@@ -33,9 +33,8 @@ class Tugas extends BaseController
     {
         $id = $this->request->uri->getSegment(3);
         $tugasModel = new \App\Models\TugasModel();
-        $tugas = $tugasModel->find($id);
+        $tugas = $tugasModel->find(1);
         $tugasid = $tugas->id;
-
         if($this->request->uri->getSegment(4) == 'Admin')
         {
             return view('Tugas/Edit', [
@@ -52,7 +51,10 @@ class Tugas extends BaseController
                 'name' => 'tugas',
                 'title' => "Tugas #$tugasid"
             ],
-            'tugas' => $tugas
+            'tugas' => [
+                'quest' => $tugas,
+                'answer' => $tugasModel->tugasAnswer($id, $this->session->get('id'))
+            ]
         ]);
     }
 
@@ -88,15 +90,20 @@ class Tugas extends BaseController
     {
         if($this->request->getPost())
         {
-            $tugasModel = new \App\Models\TugasModel();
-            $tugas = new \App\Entities\Tugas();
+            $siswaTugasModel = new \App\Models\SiswaTugasModel();
+            $siswatugas = new \App\Entities\SiswaTugas();
+            $data = $this->request->getPost();
+            $siswatugas->fill($data);
+            $siswatugas->user_id = $this->session->get('id');
+            $siswatugas->tugas_id = $this->request->uri->getSegment(3);
+            $siswatugas->filename = $this->request->getFile('attachment')->getName();
             if($this->request->getFile('attachment'))
             {
-                $tugas->attachment = $this->request->getFile('attachment');
+                $siswatugas->setAttachment($this->request->getFile('attachment'));
             }
-            $tugasModel->save($tugas);
-            $id = $tugasModel->insertID();
-            $segments = ['Barang', 'View', $id];
+            $siswaTugasModel->save($siswatugas);
+            $id = $siswaTugasModel->insertID();
+            $segments = ['Tugas', 'View', $this->request->uri->getSegment(3)];
             return redirect()->to(site_url($segments));
         }
         echo 'Something went wrong';
