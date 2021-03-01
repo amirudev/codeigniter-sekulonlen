@@ -14,6 +14,7 @@ class Tugas extends BaseController
 	public function Index()
 	{
         $tugasModel = new \App\Models\TugasModel();
+        $idsiswa = $this->session->get('id');
 
 		return view('Tugas/Index', [
             'pagedata' => [
@@ -21,7 +22,7 @@ class Tugas extends BaseController
                 'title' => 'Daftar Tugas'
             ],
             'tugass' => [
-                'data' => $tugasModel->listing()
+                'data' => $tugasModel->listing($idsiswa)
             ]
         ]);
 	}

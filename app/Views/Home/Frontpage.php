@@ -8,61 +8,6 @@
     <a href="#" class="text-white">Baca Selengkapnya</a>
 </div>
 <div class="my-3">
-    <h5 class="my-3">My Study</h5>
-    <div class="row">
-        <div class="col-lg-3 col-sm-6 col-12 my-1">
-            <div class="card p-3 border-0">
-                <div class="row">
-                    <div class="col position-relative d-flex align-items-center">
-                        <h1 class="fw-bold position-absolute end-0">29</h1>
-                    </div>
-                    <div class="col text-secondary">
-                        <h6>Teman</h6>
-                        <h6>Sekelas</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-12 my-1">
-            <div class="card p-3 border-0">
-                <div class="row">
-                    <div class="col position-relative d-flex align-items-center">
-                        <h1 class="fw-bold position-absolute end-0">4</h1>
-                    </div>
-                    <div class="col text-secondary">
-                        <h6>Tugas</h6>
-                        <h6>Berjalan</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-12 my-1">
-            <div class="card p-3 border-0">
-                <div class="row">
-                    <div class="col position-relative d-flex align-items-center">
-                        <h1 class="fw-bold position-absolute end-0">11</h1>
-                    </div>
-                    <div class="col text-secondary">
-                        <h6>Tugas</h6>
-                        <h6>Diselesaikan</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-12 my-1">
-            <div class="card p-3 border-0">
-                <div class="row">
-                    <div class="col position-relative d-flex align-items-center">
-                        <h1 class="fw-bold position-absolute end-0">B+</h1>
-                    </div>
-                    <div class="col text-secondary">
-                        <h6>Nilai</h6>
-                        <h6>Siswa</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-lg-9 col-12">
             <h5 class="my-3">My Assignment</h5>

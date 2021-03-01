@@ -11,10 +11,12 @@ class TugasModel extends Model
     protected $returnType = 'App\Entities\Tugas';
     protected $useTimestamps = false;
 
-    public function listing()
+    public function listing($idsiswa)
     {
         $this->select(['tugas.*', 'kelas.kelas_bgcolor', 'kelas.kelas_name']);
         $this->join('kelas', 'kelas.id = tugas.kelas_id');
+        $this->join('siswakelas', 'siswakelas.kelas_id = kelas.id');
+        $this->where("siswakelas.user_id = $idsiswa");
         $this->orderBy('time_limit', 'ASC');
         $query = $this->get();
         return $query->getResultArray();
