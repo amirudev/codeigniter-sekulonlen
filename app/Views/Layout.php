@@ -1,5 +1,5 @@
 <?= $this->include('Layout/Header') ?>
-<body class="bg-light">
+<body class="bg-light position-relative">
     <nav class="nav-sidebar bg-white navbar-active" id="navbar">
         <div class="logo mt-1">
             <a href="<?= base_url(); ?>">
@@ -84,6 +84,4 @@
         <div class="mx-4">
             <?= $this->renderSection('content') ?>
         </div>
-    </div>
-</body>
 <?= $this->include('Layout/Footer') ?>

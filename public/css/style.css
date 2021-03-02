@@ -107,6 +107,15 @@ body {
     text-decoration: none;
 }
 
+/* Footer */
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    text-decoration: underline #666;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 625px){
