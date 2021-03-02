@@ -23,7 +23,6 @@ class Tugas extends BaseController
             ],
             'tugass' => [
                 'running' => $tugasModel->listing($idsiswa),
-                'late' => $tugasModel->listLate($idsiswa),
                 'completed' => $tugasModel->listCompleted($idsiswa)
             ]
         ]);
@@ -33,7 +32,7 @@ class Tugas extends BaseController
     {
         $id = $this->request->uri->getSegment(3);
         $tugasModel = new \App\Models\TugasModel();
-        $tugas = $tugasModel->find(1);
+        $tugas = $tugasModel->find($id);
         $tugasid = $tugas->id;
         if($this->request->uri->getSegment(4) == 'Admin')
         {
@@ -96,10 +95,13 @@ class Tugas extends BaseController
             $siswatugas->fill($data);
             $siswatugas->user_id = $this->session->get('id');
             $siswatugas->tugas_id = $this->request->uri->getSegment(3);
-            $siswatugas->filename = $this->request->getFile('attachment')->getName();
-            if($this->request->getFile('attachment'))
+            if($this->request->getFile('attachment')->getName())
             {
+                $siswatugas->filename = $this->request->getFile('attachment')->getName();
                 $siswatugas->setAttachment($this->request->getFile('attachment'));
+            } else {
+                $siswatugas->filename = 'Tidak ada lampiran';
+                $siswatugas->attachment = '';
             }
             $siswaTugasModel->save($siswatugas);
             $id = $siswaTugasModel->insertID();

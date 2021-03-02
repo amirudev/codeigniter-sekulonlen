@@ -16,7 +16,10 @@
             if($this->session->get('username')){ 
             ?>
                 <div class="card p-3 border-0">
-                    <?php foreach ($tugass['data'] as $index=>$tugas) { ?>
+                    <?php foreach ($tugass['data'] as $index=>$tugas) {
+                        $timeleft = timestampToIndonesian(strtotime($tugas['time_limit']) - time());
+                        if($timeleft > 0) {
+                            $timeleft = $timeleft . ' Tersisa'; ?>
                         <div class="row my-2">
                             <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-<?= getColor($tugas['kelas_bgcolor']) ?>">
                                 <a class="text-white m-auto fs-3 fw-bold" href="#"><?= substr($tugas['kelas_name'], 0, 1) ?></a>
@@ -26,12 +29,13 @@
                                     <h5><?= $tugas['kelas_name'] ?></h5>
                                     <span><?= $tugas['tugas_name'] ?></span>
                                     <div class="progress my-3">
-                                        <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= timestampToIndonesian(strtotime($tugas['time_limit']) - time()); ?></div>
+                                        <div class="progress-bar bg-<?= getColor($tugas['kelas_bgcolor']) ?>" role="progressbar" style="width: <?= (strtotime($tugas['time_limit']) - time()) / 86400 * 100 ?>%"><?= $timeleft ?></div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php } 
+                    } ?>
                 </div>
             <?php } else { ?>
                 <p class="text-secondary text-center">Silahkan Login atau Register untuk melihat data</p>

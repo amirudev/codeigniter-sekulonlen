@@ -18,23 +18,8 @@ class TugasModel extends Model
         $this->join('kelas', 'kelas.id = tugas.kelas_id');
         $this->join('siswakelas', 'siswakelas.kelas_id = kelas.id');
         $this->where("siswakelas.user_id = $idsiswa");
-        $this->where("tugas.time_limit > '$currentdatetime'");
+        $this->groupBy('tugas.id');
         $this->orderBy('time_limit', 'ASC');
-        $query = $this->get();
-        return $query->getResultArray();
-    }
-
-    public function listLate($idsiswa)
-    {
-        $currentdatetime = date('Y-m-d H:i:s', time());
-        $this->select(['tugas.*', 'kelas.kelas_bgcolor', 'kelas.kelas_name']);
-        $this->join('kelas', 'kelas.id = tugas.kelas_id');
-        $this->join('siswakelas', 'siswakelas.kelas_id = kelas.id');
-        $this->where("siswakelas.user_id = $idsiswa");
-        $this->join('siswatugas', 'siswatugas.user_id = siswakelas.user_id');
-        $this->where('siswatugas.tugas_id <> tugas.id');
-        $this->where("tugas.time_limit < '$currentdatetime'");
-        $this->orderBy('time_limit', 'DESC');
         $query = $this->get();
         return $query->getResultArray();
     }
