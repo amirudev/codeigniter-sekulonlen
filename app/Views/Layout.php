@@ -29,6 +29,18 @@
                         <p>Tugas</p>
                     </li>
                 </a>
+                <?php
+                $this->session = session();
+                $status = $this->session->get('privilege');
+                if($status == 1)
+                { ?>
+                    <a href="<?= base_url('/Admin') ?>">
+                        <li class="my-5 <?php if($pagedata['name'] == 'admin'){echo 'active';} ?>">
+                            <i class="fas fa-user-cog fa-2x"></i>
+                            <p>Admin</p>
+                        </li>
+                    </a>
+                <?php } ?>
             </ul>
         </div>
     </nav>
