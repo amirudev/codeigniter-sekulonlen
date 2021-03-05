@@ -82,4 +82,28 @@ class Validation
 			'required' => 'Username wajib diisi'
 		]
 	];
+	
+	public $kelas = [
+		'kelas_name' => [
+			'rules' => 'required'
+		],
+		'kelas_bgcolor' => [
+			'rules' => 'required'
+		],
+		'kelas_icon' => [
+			'rules' => 'required'
+		],
+	];
+
+	public $kelas_errors = [
+		'kelas_name' => [
+			'required' => 'Nama kelas belum diisi'
+		],
+		'kelas_bgcolor' => [
+			'required' => 'Pilih warna kelas terlebih dahulu'
+		],
+		'kelas_icon' => [
+			'required' => 'Pilih ikon kelas terlebih dahulu'
+		]
+	];
 }

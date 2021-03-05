@@ -15,7 +15,7 @@ class Kelas extends Migration
             'kelas_name' => [
                 'type' => 'TEXT'
             ],
-            'user_id' => [
+            'kelas_userid' => [
                 'type' => 'INT'
             ],
             'kelas_icon' => [

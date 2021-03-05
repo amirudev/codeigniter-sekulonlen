@@ -36,12 +36,12 @@ $submit = [
         $this->session = session();
         $errors = $this->session->getFlashdata('errors');
         if($errors){
-            foreach($errors as $index => $error){
+            foreach($errors as $index => $error){ ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error ?>
+                </div>
+        <?php }
         } ?>
-        <div class="alert alert-danger" role="alert">
-            <?= $error ?>
-        </div>
-        <?php } ?>
         <div class="form-floating">
             <?= form_input($judultugas) ?>
             <?= form_label('Judul Tugas', 'judul_tugas') ?>
