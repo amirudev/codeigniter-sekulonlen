@@ -14,16 +14,6 @@ $deskripsitugas = [
     'class' => 'form-control mb-2',
     'style' => 'height: 200px'
 ];
-$kelastugas = [
-    'name' => 'kelas_id',
-    'id' => 'id_kelas',
-    'options' => [
-        1 => 'Sains 9B',
-        2 => 'Matematika 9B',
-        3 => 'Bahasa Indonesia 9B'
-    ],
-    'class' => 'form-select'
-];
 $submit = [
     'class' => 'btn btn-primary my-2 w-100',
     'value' => 'Tugaskan'
@@ -54,7 +44,11 @@ $submit = [
     <div class="col-12 col-md-4 my-1">
         <div class="form-group">
             <?= form_label('Pilih Kelas', 'id_kelas') ?>
-            <?= form_dropdown($kelastugas) ?>
+            <select class="form-select" name="kelas_id" id="id_kelas">
+                <?php foreach ($data['kelass'] as $index => $kelas) { ?>
+                    <option value="<?= $kelas['id'] ?>"><?= $kelas['kelas_name'] ?></option>
+                <?php }  ?>
+            </select>
         </div>
         <div class="form-group">
             <p class="form-label">Pilih Tenggat Waktu</p>

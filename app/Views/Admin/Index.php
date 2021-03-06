@@ -73,8 +73,10 @@
         </div>
     </div>
     <div class="col-12 col-lg-9">
-            <h5 class="my-3">Untuk Diperiksa</h5>
-                <div class="card p-3 border-0">
+            <h5 class="my-3 w-25">Kelas Saya</h5>
+                <a class="btn btn-primary w-25 my-2" href="Tugas/Tambah"><i class="fas fa-tasks"></i> Tambah Tugas</a>
+                <a class="btn btn-success w-25 my-2" href="Kelas/Tambah"><i class="fas fa-chalkboard-teacher"></i> Tambah Kelas</a>
+                <div class="card p-3 border-0 float-none">
                     <div class="row my-2">
                         <div class="avatar-class col-3 ms-4 mb-2 card border-0 bg-primary">
                             <a class="text-white m-auto fs-3 fw-bold" href="#">M</a>

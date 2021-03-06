@@ -13,7 +13,7 @@ class KelasModel extends Model
 
     public function index($userid)
     {
-        $this->select('*');
+        $this->select(['kelas.*', 'user.user_fullname']);
         $this->join('user', 'user.id = kelas.kelas_userid');
         $this->where("kelas.kelas_userid = $userid");
         $query = $this->get();

@@ -18,7 +18,7 @@
                         <div class="popover position-absolute p-3 text-start w-100">
                             <span>Link Kelas</span>
                             <div class="input-group">
-                                <input type="text" value="https://localhost:8080/Kelas/Gabung/ahsaehu" class="form-control" readonly>
+                                <input type="text" value="http://localhost:8080/Kelas/Gabung/<?= $kelas['id'] ?>" class="form-control" readonly>
                                 <span class="input-group-text" id="copytext-button"><i class="fas fa-copy"></i></span>
                             </div>
                         </div>

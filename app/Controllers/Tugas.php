@@ -66,8 +66,8 @@ class Tugas extends BaseController
             $errors = $this->validation->getErrors();
             if(!$errors)
             {
-                $tugasModel = new \App\Models\TugasModel();
                 $tugas = new \App\Entities\Tugas();
+                $tugasModel = new \App\Models\TugasModel();
                 $timelimit_date = $data['timelimit_date'];
                 $timelimit_time = $data['timelimit_time'];
                 $data['time_limit'] = date('Y:m:d H:i:s', strtotime("$timelimit_date $timelimit_time"));
@@ -77,10 +77,14 @@ class Tugas extends BaseController
             }
             $this->session->setFlashdata('errors', $errors);
         }
+        $kelasModel = new \App\Models\KelasModel();
         return view('Tugas/Tambah', [
             'pagedata' => [
                 'name' => 'tugas',
                 'title' => 'Tambah Tugas'
+            ],
+            'data' => [
+                'kelass' => $kelasModel->index($this->session->get('id'))
             ]
         ]);
     }

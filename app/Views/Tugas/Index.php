@@ -4,14 +4,15 @@
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\sitesetting.php'); ?>
 <div class="row">
-    <?php 
+    <?php
         $currentindex = 0;
         foreach ($tugass['running'] as $index => $tugas) {
         $timeleft = timestampToIndonesian(strtotime($tugas['time_limit']) - time());
         if($timeleft > 0) {
             $timeleft = $timeleft . ' Tersisa';
-            $currentindex++;
-            if($index <= $currentindex){ ?>
+            if($currentindex <= 1){ 
+                $currentindex++
+                ?>
                 <a href="/Tugas/View/<?= $tugas['id'] ?>" class="col-12 col-md-6 my-2">
                     <div class="card bg-<?= getColor($tugas['kelas_bgcolor']) ?> mx-2 p-3 text-white">
                         <h4><?= xsspurify($tugas['tugas_name']); ?></h4>
