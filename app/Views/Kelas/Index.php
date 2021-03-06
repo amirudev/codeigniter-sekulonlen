@@ -9,6 +9,21 @@
                 <span class="mt-4"><?= $kelas['user_fullname'] ?></span>
                 <h4><?= $kelas['kelas_name'] ?></h4>
                 <i class="fas fa-<?= getIcon($kelas['kelas_icon']) ?> fa-4x"></i>
+                <?php 
+                $this->session = session();
+                if($kelas['kelas_userid'] == $this->session->get('id')): 
+                ?>
+                    <button class="bg-transparent border-0 text-end position-relative" id="popover-expand-button">
+                        <i class="fas fa-share fs-5 mx-2 align-middle text-white"></i>
+                        <div class="popover position-absolute p-3 text-start w-100">
+                            <span>Link Kelas</span>
+                            <div class="input-group">
+                                <input type="text" value="https://localhost:8080/Kelas/Gabung/ahsaehu" class="form-control" readonly>
+                                <span class="input-group-text" id="copytext-button"><i class="fas fa-copy"></i></span>
+                            </div>
+                        </div>
+                    </button>
+                <?php endif; ?>
             </div>
         </div>
     <?php } ?>

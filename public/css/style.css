@@ -67,7 +67,6 @@ body {
 
 .popover {
     top: 50px;
-    left: -100px;
     width: 200px;
     display: none;
 }

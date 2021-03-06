@@ -11,11 +11,22 @@ class KelasModel extends Model
     protected $returnType = 'App\Entities\Kelas';
     protected $useTimestamps = false;
 
-    public function listing($idsiswa)
+    public function index($userid)
     {
         $this->select('*');
         $this->join('user', 'user.id = kelas.kelas_userid');
-        $this->where("kelas.kelas_userid = $idsiswa");
+        $this->where("kelas.kelas_userid = $userid");
+        $query = $this->get();
+        return $query->getResultArray();
+    }
+
+    public function myclass($idsiswa)
+    {
+        $this->select('*');
+        $this->join('user', 'user.id = kelas.kelas_userid');
+        $this->groupBy('kelas.id');
+        $this->join('siswakelas', 'siswakelas.kelas_id = kelas.id');
+        $this->where("siswakelas.user_id = $idsiswa");
         $query = $this->get();
         return $query->getResultArray();
     }

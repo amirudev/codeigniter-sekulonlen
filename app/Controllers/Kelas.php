@@ -15,6 +15,11 @@ class Kelas extends BaseController
 	{
         $kelasModel = new \App\Models\KelasModel();
         $idsiswa = $this->session->get('id');
+        if($this->session->get('privilege') == 1){
+            $datakelas = $kelasModel->index($idsiswa);
+        } else {
+            $datakelas = $kelasModel->myclass($idsiswa);
+        }
 
 		return view('Kelas/Index', 
         [
@@ -23,7 +28,7 @@ class Kelas extends BaseController
                 'title' => 'Daftar Kelas'
             ],
             'kelass' => [
-                'data' => $kelasModel->listing($idsiswa)
+                'data' => $datakelas
             ]
         ]);
 	}
@@ -59,5 +64,19 @@ class Kelas extends BaseController
             ]);
         }
         return redirect()->to(site_url('kelas/tambah'));
+    }
+
+    public function gabung()
+    {
+        $idkelas = $this->request->uri->getSegment(3);
+        if($idkelas)
+        {
+            $SiswakelasModel = new \App\Models\SiswaKelasModel();
+            $siswakelas = new \App\Entities\SiswaKelas();
+            $siswakelas->user_id = $this->session->get('id');
+            $siswakelas->kelas_id = $idkelas;
+            $SiswakelasModel->save($siswakelas);
+            return redirect()->to(site_url('Kelas'));
+        }
     }
 }

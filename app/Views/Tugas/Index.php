@@ -3,11 +3,6 @@
 <?php require($_SERVER['DOCUMENT_ROOT'] . '/function/xss_purify.php') ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\timestampToIndonesian.php'); ?>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '\function\sitesetting.php'); ?>
-<?php
-$this->session = session();
-if($this->session->get('privilege') == 1){ ?>
-    <a href="/Tugas/Tambah" class="btn-link">+ Tambah Tugas</a>
-<?php } ?>
 <div class="row">
     <?php 
         $currentindex = 0;
