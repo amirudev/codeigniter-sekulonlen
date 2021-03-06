@@ -61,7 +61,12 @@
                 <?= form_label('Keterangan', 'content') ?>
                 <?= form_textarea($description, $tugascontent) ?>
             </div>
-            <?= form_submit($submit) ?>
+            <?php 
+            $this->session = session();
+            if($this->session->get('privilege') == 0): 
+            ?>
+                <?= form_submit($submit) ?>
+            <?php endif; ?>
             <?= form_close(); ?>
         </div>
     </div>

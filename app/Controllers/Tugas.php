@@ -44,6 +44,13 @@ class Tugas extends BaseController
                 'tugas' => $tugas
             ]);
         }
+        
+        if($this->session->get('privilege') == 1)
+        {
+            $userid = $this->request->uri->getSegment(5);
+        } else {
+            $userid = $this->session->get('id');
+        }
 
         return view('Tugas/View', [
             'pagedata' => [
@@ -52,7 +59,7 @@ class Tugas extends BaseController
             ],
             'tugas' => [
                 'quest' => $tugas,
-                'answer' => $tugasModel->tugasAnswer($id, $this->session->get('id'))
+                'answer' => $tugasModel->tugasAnswer($id, $userid)
             ]
         ]);
     }

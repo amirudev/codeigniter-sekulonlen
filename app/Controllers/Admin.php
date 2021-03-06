@@ -11,14 +11,17 @@ class Admin extends BaseController
 
     public function index()
     {
+        $idguru = $this->session->get('id');
         $beritaModel = new \App\Models\BeritaModel();
+        $siswatugasModel = new \App\Models\SiswaTugasModel();
         return view('Admin/Index', [
             'pagedata' => [
                 'name' => 'admin',
                 'title' => 'Admin Panel'
             ],
             'data' => [
-                'beritas' => $beritaModel->findAll()
+                'beritas' => $beritaModel->findAll(),
+                'tugass' => $siswatugasModel->indextugas($idguru)
             ]
         ]);
     }
