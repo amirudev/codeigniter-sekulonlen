@@ -52,24 +52,6 @@
                 </button>
                 <div>
                     <button class="bg-light border-0 position-relative" id="popover-expand-button">
-                        <i class="fas fa-bell fs-5 mx-2 align-middle"></i>
-                        <div class="popover position-absolute p-3">
-                            <span>Tugas belum dikumpulkan!</span>
-                            <hr>
-                            <span>Tugas belum dikumpulkan!</span>
-                        </div>
-                    </button>
-                    <button class="bg-light border-0 position-relative" id="popover-expand-button">
-                        <i class="fas fa-newspaper fs-5 mx-2 align-middle"></i>
-                        <div class="popover position-absolute p-3">
-                            <span>Sekolah ditutup kembali</span>
-                            <h6 class="text-secondary text-end">12-01-2021</h6>
-                            <hr>
-                            <span>Belajar Online diperpanjang</span>
-                            <h6 class="text-secondary text-end">12-01-2021</h6>
-                        </div>
-                    </button>
-                    <button class="bg-light border-0 position-relative" id="popover-expand-button">
                         <img src="<?= base_url('image/icon/person.png') ?>">
                         <?php
                         $this->session = session();

@@ -13,6 +13,7 @@
                 </a>
             </div>
         <?php } ?>
+        <a href="/Berita/Index">Lebih Banyak</a>
     </div>
     <div class="col-12 col-lg-9">
             <h5 class="my-3 w-25">Kelas Saya</h5>

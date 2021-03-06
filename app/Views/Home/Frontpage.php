@@ -54,6 +54,7 @@
                     </div>
                 </a>
             <?php } ?>
+            <a href="/Berita/Index">Lebih Banyak</a>
         </div>
     </div>
 </div>

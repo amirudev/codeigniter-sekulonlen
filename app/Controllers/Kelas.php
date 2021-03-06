@@ -47,8 +47,13 @@ class Kelas extends BaseController
                 {
                     $kelas = new \App\Entities\Kelas();
                     $kelasModel = new \App\Models\KelasModel();
+                    $siswakelas = new \App\Entities\SiswaKelas();
+                    $siswakelasModel = new \App\Models\SiswaKelasModel();
                     $kelas->fill($data);
                     $kelasModel->save($kelas);
+                    $siswakelas->user_id = $idguru;
+                    $siswakelas->kelas_id = $kelasModel->insertID();
+                    $siswakelasModel->save($siswakelas);
                     return redirect()->to(site_url('Kelas/Index'));
                 }
                 $this->session->setFlashdata('errors', $errors);
