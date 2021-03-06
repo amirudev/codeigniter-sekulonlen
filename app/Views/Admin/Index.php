@@ -1,76 +1,16 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
 <div class="row g-3 graph-top">
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card card-canvas mx-1 p-2 shadow-sm row h-100">
-            <div class="fs-5 my-1">
-                <i class="fas fa-users mx-1"></i>
-                <span>Pengguna</span>
-                <div class="my-3">
-                    <div class="progress my-2">
-                        <div class="progress-bar progress-lg" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">Siswa</div>
-                    </div>
-                    <div class="progress my-2">
-                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Guru</div>
-                    </div>
-                    <h6>65 Pengguna Terdaftar</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card card-canvas mx-1 p-2 shadow-sm row h-100">
-            <div class="fs-5 my-1">
-                <i class="fas fa-edit mx-1"></i>
-                <span>Tugas Dikerjakan</span>
-                <div class="my-3">
-                    <div class="progress my-2">
-                        <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6>66% Siswa Selesai</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card card-canvas mx-1 p-2 shadow-sm row h-100">
-            <div class="fs-5 my-1">
-                <i class="fas fa-book-open mx-1"></i>
-                <span>Total Tugas</span>
-                <div class="my-3">
-                    <div class="progress my-2">
-                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <h6>3 Bulan ini</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-3">
-        <div class="card card-canvas mx-1 p-2 shadow-sm row h-100">
-            <div class="fs-5 my-1">
-                <i class="fas fa-graduation-cap mx-1"></i>
-                <span>Aktivitas</span>
-                <div class="my-3">
-                    <h4>Melisa Adrianti</h4>
-                    <h6>Mengerjakan tugas Mengidentifikasi Denah Daerah Mampir</h6>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="col-12 col-lg-3">
         <h5 class="my-3">Latest Information</h5>
-        <button class="btn btn-primary w-100 my-2"><i class="fas fa-rss"></i> Tambah Berita</button>
-        <div class="card p-3 mb-2 border-0">
-            <h6 class="fw-bold">Lockdown in Indonesia extended, School closed due to government instruction</h6>
-            <hr>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, saepe neque facilis officiis veniam, asperiores nisi pariatur earum dolor fugit laboriosam ipsa debitis esse consectetur odio. Quia ut a nam.</p>
-        </div>
-        <div class="card p-3 mb-2 border-0">
-            <h6 class="fw-bold">Experiencing online learning, sekulonlen start development</h6>
-            <hr>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, saepe neque facilis officiis veniam, asperiores nisi pariatur earum dolor fugit laboriosam ipsa debitis esse consectetur odio. Quia ut a nam.</p>
-        </div>
+        <a class="btn btn-primary w-100 my-2" href="admin/tambahberita"><i class="fas fa-rss"></i> Tambah Berita</a>
+        <?php foreach ($data['beritas'] as $index => $berita) { ?>
+            <div class="card p-3 mb-2 border-0">
+                <h6 class="fw-bold"><?= $berita->berita_judul ?></h6>
+                <hr>
+                <p><?= substr($berita->berita_content, 0, 250) ?></p>
+            </div>
+        <?php } ?>
     </div>
     <div class="col-12 col-lg-9">
             <h5 class="my-3 w-25">Kelas Saya</h5>

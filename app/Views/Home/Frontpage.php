@@ -16,7 +16,7 @@
             if($this->session->get('username')){ 
             ?>
                 <div class="card p-3 border-0">
-                    <?php foreach ($tugass['data'] as $index=>$tugas) {
+                    <?php foreach ($data['tugass'] as $index=>$tugas) {
                         $timeleft = timestampToIndonesian(strtotime($tugas['time_limit']) - time());
                         if($timeleft > 0) {
                             $timeleft = $timeleft . ' Tersisa'; ?>
@@ -43,16 +43,13 @@
         </div>
         <div class="col-lg-3 col-12">
             <h5 class="my-3">Latest Information</h5>
-            <div class="card p-3 mb-2 border-0">
-                <h6 class="fw-bold">Lockdown in Indonesia extended, School closed due to government instruction</h6>
-                <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, saepe neque facilis officiis veniam, asperiores nisi pariatur earum dolor fugit laboriosam ipsa debitis esse consectetur odio. Quia ut a nam.</p>
-            </div>
-            <div class="card p-3 mb-2 border-0">
-                <h6 class="fw-bold">Experiencing online learning, sekulonlen start development</h6>
-                <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, saepe neque facilis officiis veniam, asperiores nisi pariatur earum dolor fugit laboriosam ipsa debitis esse consectetur odio. Quia ut a nam.</p>
-            </div>
+            <?php foreach ($data['beritas'] as $index => $berita) { ?>
+                <div class="card p-3 mb-2 border-0">
+                    <h6 class="fw-bold"><?= $berita->berita_judul ?></h6>
+                    <hr>
+                    <p><?= substr($berita->berita_content, 0, 250) ?></p>
+                </div>
+            <?php } ?>
         </div>
     </div>
 </div>

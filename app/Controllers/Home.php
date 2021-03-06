@@ -12,8 +12,10 @@ class Home extends BaseController
 	public function frontpage()
 	{
 		$tugasModel = new \App\Models\TugasModel();
+		$beritaModel = new \App\Models\BeritaModel();
 		$idsiswa = $this->session->get('id');
-		$data = $tugasModel->listing($idsiswa);
+		$tugasdata = $tugasModel->listing($idsiswa);
+		$beritadata = $beritaModel->findAll();
 
 		return view('Home/Frontpage',
 		[
@@ -21,8 +23,9 @@ class Home extends BaseController
 				'name' => '',
 				'title' => 'Dashboard'
 			],
-			'tugass' => [
-				'data' => $data
+			'data' => [
+				'tugass' => $tugasdata,
+				'beritas' => $beritadata
 			]
 		]);
 	}

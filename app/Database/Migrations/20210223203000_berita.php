@@ -3,7 +3,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Siswa extends Migration
+class Berita extends Migration
 {
     public function up()
     {
@@ -12,27 +12,24 @@ class Siswa extends Migration
                 'type' => 'INT',
                 'auto_increment' => TRUE
             ],
-            'username' => [
+            'berita_judul' => [
                 'type' => 'TEXT'
             ],
-            'user_fullname' => [
+            'berita_content' => [
                 'type' => 'TEXT'
             ],
-            'password' => [
-                'type' => 'TEXT'
-            ],
-            'privilege' => [
-                'type' => 'INT'
+            'created_at' => [
+                'type' => 'DATETIME'
             ]
         ]);
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->createTable('user', TRUE);
+        $this->forge->createTable('berita', TRUE);
     }
 
     public function down()
     {
-        $this->forge->dropTable('user');
+        $this->forge->dropTable('berita');
     }
 }
