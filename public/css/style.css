@@ -84,7 +84,7 @@ body {
 /* Content - Dashboard */
 
 .banner-info {
-    height: 150px;
+    min-height: 150px;
 }
 
 .banner-info p {

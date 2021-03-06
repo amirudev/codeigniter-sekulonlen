@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 <?= $this->section('content') ?>
 <div class="d-flex justify-content-center">
-    <div class="card bg-white col-6 text-center p-3">
+    <div class="card bg-white col-11 col-md-8 col-6 text-center p-3">
         <h4 class="mb-4">Register</h4>
         <?php
         $name = [

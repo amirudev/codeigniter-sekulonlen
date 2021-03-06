@@ -34,7 +34,7 @@ class Admin extends BaseController
             $beritaModel->save($berita);
             return redirect()->to(site_url('admin'));
         }
-        return view('Admin/TambahBerita', [
+        return view('Berita/TambahBerita', [
             'pagedata' => [
                 'name' => 'admin',
                 'title' => 'Tambah Berita Baru'

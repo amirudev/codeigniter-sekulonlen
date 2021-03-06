@@ -6,9 +6,11 @@
         <a class="btn btn-primary w-100 my-2" href="admin/tambahberita"><i class="fas fa-rss"></i> Tambah Berita</a>
         <?php foreach ($data['beritas'] as $index => $berita) { ?>
             <div class="card p-3 mb-2 border-0">
-                <h6 class="fw-bold"><?= $berita->berita_judul ?></h6>
-                <hr>
-                <p><?= substr($berita->berita_content, 0, 250) ?></p>
+                <a href="/Berita/View/<?= $berita->id ?>" class="text-dark">
+                    <h6 class="fw-bold"><?= $berita->berita_judul ?></h6>
+                    <hr>
+                    <p><?= substr($berita->berita_content, 0, 250) ?>...</p>
+                </a>
             </div>
         <?php } ?>
     </div>

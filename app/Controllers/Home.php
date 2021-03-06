@@ -15,7 +15,6 @@ class Home extends BaseController
 		$beritaModel = new \App\Models\BeritaModel();
 		$idsiswa = $this->session->get('id');
 		$tugasdata = $tugasModel->listing($idsiswa);
-		$beritadata = $beritaModel->findAll();
 
 		return view('Home/Frontpage',
 		[
@@ -25,7 +24,7 @@ class Home extends BaseController
 			],
 			'data' => [
 				'tugass' => $tugasdata,
-				'beritas' => $beritadata
+				'beritas' => $beritaModel->frontlist()
 			]
 		]);
 	}

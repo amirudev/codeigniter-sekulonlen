@@ -14,7 +14,7 @@
                 $currentindex++
                 ?>
                 <a href="/Tugas/View/<?= $tugas['id'] ?>" class="col-12 col-md-6 my-2">
-                    <div class="card bg-<?= getColor($tugas['kelas_bgcolor']) ?> mx-2 p-3 text-white">
+                    <div class="card bg-<?= getColor($tugas['kelas_bgcolor']) ?> mx-2 p-3 text-white h-100">
                         <h4><?= xsspurify($tugas['tugas_name']); ?></h4>
                         <p><?= xsspurify(substr($tugas['content'], 0, 100)); ?></p>
                         <span class="text-end"><?= $timeleft ?></span>

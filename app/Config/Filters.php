@@ -34,7 +34,7 @@ class Filters extends BaseConfig
 			// 'honeypot',
 			// 'csrf',
 			'auth' => ['except' => ['/' .'Auth/*', 'Home']],
-			'admin' => ['except' => ['/', 'Auth/*', 'Home/*', 'Kelas', 'Tugas', 'Kelas/*', 'Tugas/*']]
+			'admin' => ['except' => ['/', 'Auth/*', 'Home/*', 'Kelas', 'Tugas', 'Kelas/*', 'Tugas/*', 'Berita/*']]
 		],
 		'after'  => [
 			'toolbar',
